@@ -22,21 +22,13 @@ This template configures a single function, `api`, which is responsible for hand
 
 ### Deployment
 
-This example is made to work with the Serverless Framework dashboard, which includes advanced features such as CI/CD, monitoring, metrics, etc.
-
-In order to deploy with dashboard, you need to first login with:
-
-```
-serverless login
-```
-
-install dependencies with:
+Install dependencies with:
 
 ```
 npm install
 ```
 
-and then perform deployment with:
+and then deploy with:
 
 ```
 serverless deploy
@@ -68,8 +60,7 @@ resources: 12
 api keys:
   None
 endpoints:
-  ANY - https://xxxxxxx.execute-api.us-east-1.amazonaws.com/dev/
-  ANY - https://xxxxxxx.execute-api.us-east-1.amazonaws.com/dev/{proxy+}
+  ANY - https://xxxxxxx.execute-api.us-east-1.amazonaws.com/
 functions:
   api: aws-node-express-api-dev-api
 layers:
@@ -83,7 +74,7 @@ _Note_: In current form, after deployment, your API is public and can be invoked
 After successful deployment, you can call the created application via HTTP:
 
 ```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/dev/
+curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/
 ```
 
 Which should result in the following response:
@@ -95,7 +86,7 @@ Which should result in the following response:
 Calling the `/hello` path with:
 
 ```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/dev/hello
+curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/hello
 ```
 
 Should result in the following response:
@@ -107,7 +98,7 @@ Should result in the following response:
 If you try to invoke a path or method that does not have a configured handler, e.g. with:
 
 ```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/dev/nonexistent
+curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/nonexistent
 ```
 
 You should receive the following response:
